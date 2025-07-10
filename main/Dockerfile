@@ -18,6 +18,9 @@ RUN a2enmod rewrite
 # Set working directory
 WORKDIR /var/www/html
 
+# ✅ Copy custom Apache config (THIS LINE WAS MISSING)
+COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+
 # Copy Laravel project files
 COPY . /var/www/html
 
